@@ -6,7 +6,7 @@
     orders: [
       {
         id: 1,
-        data: new Date().toLocaleDateString(),
+        data: Date.now(),
         product: "Курс по верстке",
         name: "Юрий Васильев",
         email: "info@rightblog.ru",
@@ -15,7 +15,7 @@
       },
       {
         id: 2,
-        data: new Date().toLocaleDateString(),
+        data: Date.now(),
         product: "Курс по JavaScript",
         name: "Иван Грозный",
         email: "info@blabla.ru",
@@ -24,7 +24,7 @@
       },
       {
         id: 3,
-        data: new Date().toLocaleDateString(),
+        data: Date.now(),
         product: "Курс по верстке",
         name: "Юрий Васильев",
         email: "info@rightblog.ru",
@@ -33,7 +33,7 @@
       },
       {
         id: 4,
-        data: new Date().toLocaleDateString(),
+        data: Date.now(),
         product: "Курс по VUE JS",
         name: "Ирина Понарошку",
         email: "info@gmail.ru",
@@ -42,7 +42,7 @@
       },
       {
         id: 5,
-        data: new Date().toLocaleDateString(),
+        data: Date.now(),
         product: "Курс по PHP",
         name: "Василий Булкин",
         email: "info@yandex.ru",
@@ -51,7 +51,7 @@
       },
       {
         id: 6,
-        data: new Date().toLocaleDateString(),
+        data: Date.now(),
         product: "Курс по WordPress",
         name: "Василий Булкин",
         email: "info@yandex.ru",
