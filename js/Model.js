@@ -55,7 +55,7 @@
         product: "Курс по WordPress",
         name: "Василий Булкин",
         email: "info@yandex.ru",
-        phone: "+7 (909) 22-22-222",
+        phone: "+7 (909) 22-22-229",
         status: "Завершен"
       }
     ]
@@ -78,8 +78,8 @@
 
   //Изменяет ордер по id
   Model.setOrderBuId = function setOrderBuId(order) {
-    database.orders[id-1] = JSON.parse(JSON.stringify(order))  //????????
-    // dispatch()
+    database.orders[id-1] = JSON.parse(JSON.stringify(order))
+    save()
   }
 
   window.Model = Model

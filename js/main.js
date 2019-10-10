@@ -4,3 +4,4 @@ const table = View.generateTable(orders)
 document.querySelector('[data-tableplace]').append(table)
 
 // console.table(orders)
+console.log(Model.getOrders());

@@ -3,6 +3,7 @@
 
   const View = {}
 
+  //генерируем заявку
   View.generateCard = function generateCard(order) {
     const divElement = document.createElement('div')
 
@@ -27,6 +28,15 @@
       }
     }
 
+    //прослушиваем кнопки
+    const buttons = divElement.querySelectorAll('a.btn')
+
+    for(const btn of buttons){
+      btn.addEventListener('click', function(event){
+        clickhandler(this, event)
+      })
+    }
+
     return divElement.firstElementChild
   }
 
@@ -43,36 +53,36 @@
       </div>
       <div class="row mb-3">
         <div class="col-md-2"><strong>Дата создания:</strong></div>
-        <div class="col"> %DATE% </div>
+        <div class="col" data-date> %DATE% </div>
       </div>
       <div class="row mb-3">
         <div class="col-md-2"><strong>Продукт:</strong></div>
         <div class="col">
-          <select class="custom-select" id="inputGroupSelect01">
-            <option value="course-html">Курс по верстке</option>
-            <option value="course-js">Курс по JavaScript</option>
-            <option value="course-vue">Курс по VUE JS</option>
-            <option value="course-php">Курс по PHP</option>
-            <option value="course-wordpress">Курс по WordPress</option>
+          <select class="custom-select" id="inputGroupSelect01" data-product>
+            <option value="Курс по верстке">Курс по верстке</option>
+            <option value="Курс по JavaScript">Курс по JavaScript</option>
+            <option value="Курс по VUE JS">Курс по VUE JS</option>
+            <option value="Курс по PHP">Курс по PHP</option>
+            <option value="Курс по WordPress">Курс по WordPress</option>
           </select>
         </div>
       </div>
       <div class="row mb-3">
         <div class="col-md-2"><strong>Имя:</strong></div>
         <div class="col">
-          <input type="text" class="form-control" value="%NAME%">
+          <input type="text" class="form-control" data-name value="%NAME%">
         </div>
       </div>
       <div class="row mb-3">
         <div class="col-md-2"><strong>Email:</strong></div>
         <div class="col">
-          <input type="text" class="form-control" value="%EMAIL%">
+          <input type="text" class="form-control" data-email value="%EMAIL%">
         </div>
       </div>
       <div class="row mb-3">
         <div class="col-md-2"><strong>Телефон:</strong></div>
         <div class="col">
-          <input type="text" class="form-control" value="%PHONE%">
+          <input type="text" class="form-control" data-phone value="%PHONE%">
         </div>
       </div>
       <div class="row mb-3">
@@ -80,12 +90,12 @@
           <strong>Статус заявки:</strong>
         </div>
         <div class="col">
-          <select class="custom-select" id="inputGroupSelect02">
-            <option value="1">Новый</option>
-            <option value="2">В работе</option>
-            <option value="3">Ожидается оплата</option>
-            <option value="4">Завершен</option>
-            <option value="5">Отказ</option>
+          <select class="custom-select" id="inputGroupSelect02" data-status>
+            <option value="Новый">Новый</option>
+            <option value="В работе">В работе</option>
+            <option value="Ожидается оплата">Ожидается оплата</option>
+            <option value="Завершен">Завершен</option>
+            <option value="Отказ">Отказ</option>
           </select>
         </div>
       </div>
@@ -93,10 +103,10 @@
     </div>
   <div class="row justify-content-between">
     <div class="col">
-      <a href="02-crm-all-bids.html" type="button" class="btn btn-primary">Сохранить изменения</a>
+      <a href="02-crm-all-bids.html" type="button" class="btn btn-primary" id='save'>Сохранить изменения</a>
     </div>
     <div class="col text-right">
-      <a href="02-crm-all-bids.html" type="button" class="btn btn-dark">Удалить в архив</a>
+      <a href="02-crm-all-bids.html" type="button" class="btn btn-dark" id='archive'>Удалить в архив</a>
     </div>
   </div>
 </form>`
