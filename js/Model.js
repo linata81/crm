@@ -61,7 +61,6 @@
     ]
   }
 
-  save()
   load()
 
   const Model = {}

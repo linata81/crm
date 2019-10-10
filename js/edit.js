@@ -23,7 +23,6 @@ function clickhandler(element, event) {
       Model.setOrderBuId(obj)
       alert('Изменения успешно сохранены!')
       console.log(Model.getOrders());
-      
     }
 
     else {
