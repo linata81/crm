@@ -6,7 +6,7 @@
     orders: [
       {
         id: 1,
-        data: Date.now(),
+        date: Date.now(),
         product: "Курс по верстке",
         name: "Юрий Васильев",
         email: "info@rightblog.ru",
@@ -15,7 +15,7 @@
       },
       {
         id: 2,
-        data: Date.now(),
+        date: Date.now() - 1000 * 60 * 60 * 24 * 2,
         product: "Курс по JavaScript",
         name: "Иван Грозный",
         email: "info@blabla.ru",
@@ -24,7 +24,7 @@
       },
       {
         id: 3,
-        data: Date.now(),
+        date: Date.now(),
         product: "Курс по верстке",
         name: "Юрий Васильев",
         email: "info@rightblog.ru",
@@ -33,7 +33,7 @@
       },
       {
         id: 4,
-        data: Date.now(),
+        date: Date.now() - 1000 * 60 * 60 * 24 * 3,
         product: "Курс по VUE JS",
         name: "Ирина Понарошку",
         email: "info@gmail.ru",
@@ -42,7 +42,7 @@
       },
       {
         id: 5,
-        data: Date.now(),
+        date: Date.now() - 1000 * 60 * 60 * 24 * 2,
         product: "Курс по PHP",
         name: "Василий Булкин",
         email: "info@yandex.ru",
@@ -51,7 +51,7 @@
       },
       {
         id: 6,
-        data: Date.now(),
+        date: Date.now(),
         product: "Курс по WordPress",
         name: "Василий Булкин",
         email: "info@yandex.ru",
@@ -62,6 +62,7 @@
   }
 
   load()
+  save()
 
   const Model = {}
 
@@ -72,13 +73,29 @@
 
   //возвращает ордер по id
   Model.getOrderBuId = function getOrderBuId(id){
-    return JSON.parse(JSON.stringify(database.orders[id-1]))
+    // return JSON.parse(JSON.stringify(database.orders[id-1]))
+    for(const item of database.orders) {
+      if(item.id === id) {
+        return JSON.parse(JSON.stringify(item))
+      }
+    }
   }
 
   //Изменяет ордер по id
-  Model.setOrderBuId = function setOrderBuId(order) {
-    database.orders[id-1] = JSON.parse(JSON.stringify(order))
-    save()
+  Model.updateOrder = function updateOrder(id, updateData) {
+    for(const item of database.orders) {
+      if(item.id === id) {
+        item.product = updateData.product
+        item.name = updateData.name
+        item.email = updateData.email
+        item.phone = updateData.phone
+        item.status = updateData.status
+        save()
+        return true
+      }
+    }
+    return false
+
   }
 
   window.Model = Model

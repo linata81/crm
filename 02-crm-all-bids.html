@@ -78,7 +78,7 @@
 				<div class="row mb-3 justify-content-start">
 					<!-- Col -->
 					<div class="col">
-						<div class="btn-group" role="group" aria-label="...">
+						<div class="btn-group" role="group" aria-label="..." data-filter-status>
 							<a href="#" class="btn btn-light">Все</a>
 							<a href="#" class="btn btn-light">Новые</a>
 							<a href="#" class="btn btn-light">В работе</a>
@@ -89,13 +89,13 @@
 					<!-- // Col -->
 					<!-- Col -->
 					<div class="col">
-						<select class="custom-select" id="inputGroupSelect01">
-							<option selected>Все продукты</option>
-							<option value="course-html">Курс по верстке</option>
-							<option value="course-js">Курс по JavaScript</option>
-							<option value="course-vue">Курс по VUE JS</option>
-							<option value="course-php">Курс по PHP</option>
-							<option value="course-wordpress">Курс по WordPress</option>
+						<select class="custom-select" id="inputGroupSelect01" data-filter-product>
+							<option value="" selected>Все продукты</option>
+							<option value="Курс по верстке">Курс по верстке</option>
+							<option value="Курс по JavaScript">Курс по JavaScript</option>
+							<option value="Курс по VUE JS">Курс по VUE JS</option>
+							<option value="Курс по PHP">Курс по PHP</option>
+							<option value="Курс по WordPress">Курс по WordPress</option>
 						</select>
 					</div>
 					<!-- // Col -->
@@ -164,7 +164,6 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="js/Model.js"></script>
 	<script src="js/View.js"></script>
-	<script src="js/Controller.js"></script>
 	<script src="js/main.js"></script>
 </body>
 

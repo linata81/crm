@@ -84,31 +84,31 @@
 			<div class="row">
 				<!-- col -->
 				<div class="col" id="card">
-					<!-- <form action=""> -->
+					<form action="">
 						<!-- card -->
-						<!-- <div class="card mb-4">
-							<div class="card-header">Данные о заявке</div> -->
-							<!-- <div class="card-body"> -->
+						<div class="card mb-4">
+							<div class="card-header">Данные о заявке</div>
+							<div class="card-body">
 
-								<!-- <div class="row mb-3">
+								<div class="row mb-3">
 									<div class="col-md-2"><strong>ID:</strong></div>
-									<div class="col"> Заявка №1 </div>
+									<div class="col"> Заявка №<span data-id>-</span> </div>
 								</div>
 
 								<div class="row mb-3">
 									<div class="col-md-2"><strong>Дата создания:</strong></div>
-									<div class="col"> 2019-04-23 13:52:13 </div>
+									<div class="col"> <span data-datetime>2019-04-23 13:52:13 </span></div>
 								</div>
 
 								<div class="row mb-3">
 									<div class="col-md-2"><strong>Продукт:</strong></div>
 									<div class="col">
-										<select class="custom-select" id="inputGroupSelect01">
-											<option value="course-html">Курс по верстке</option>
-											<option value="course-js">Курс по JavaScript</option>
-											<option value="course-vue">Курс по VUE JS</option>
-											<option value="course-php">Курс по PHP</option>
-											<option value="course-wordpress">Курс по WordPress</option>
+										<select class="custom-select" id="inputGroupSelect01" data-product>
+											<option value="Курс по верстке">Курс по верстке</option>
+											<option value="Курс по JavaScript">Курс по JavaScript</option>
+											<option value="Курс по VUE JS">Курс по VUE JS</option>
+											<option value="Курс по PHP">Курс по PHP</option>
+											<option value="Курс по WordPress">Курс по WordPress</option>
 										</select>
 									</div>
 								</div>
@@ -116,21 +116,21 @@
 								<div class="row mb-3">
 									<div class="col-md-2"><strong>Имя:</strong></div>
 									<div class="col">
-										<input type="text" class="form-control" value="Юрий Васильев">
+										<input type="text" class="form-control" value="Юрий Васильев" data-name>
 									</div>
 								</div>
 
 								<div class="row mb-3">
 									<div class="col-md-2"><strong>Email:</strong></div>
 									<div class="col">
-										<input type="text" class="form-control" value="info@rightblog.ru">
+										<input type="text" class="form-control" value="info@rightblog.ru" data-email>
 									</div>
 								</div>
 
 								<div class="row mb-3">
 									<div class="col-md-2"><strong>Телефон:</strong></div>
 									<div class="col">
-										<input type="text" class="form-control" value="+7 (903) 555-77-55">
+										<input type="text" class="form-control" value="+7 (903) 555-77-55" data-phone>
 									</div>
 								</div>
 
@@ -139,32 +139,30 @@
 										<strong>Статус заявки:</strong>
 									</div>
 									<div class="col">
-										<select class="custom-select" id="inputGroupSelect01">
+										<select class="custom-select" id="inputGroupSelect01" data-status>
 											<option selected="">Выберите...</option>
-											<option value="1">Новая</option>
-											<option value="2">В работе</option>
-											<option value="3">Ожидается оплата</option>
-											<option value="4">Завершена</option>
-											<option value="5">Отказ</option>
+											<option value="Новый">Новый</option>
+											<option value="В работе">В работе</option>
+											<option value="Завершен">Завершен</option>
 										</select>
 									</div>
-								</div> -->
+								</div>
 
 								
 
-							<!-- </div> -->
-						<!-- </div> -->
+							</div>
+						</div>
 						<!-- //card -->
-						<!-- <div class="row justify-content-between">
+						<div class="row justify-content-between">
 							<div class="col">
-								<a href="02-crm-all-bids.html" type="button" class="btn btn-primary">Сохранить изменения</a>
+								<a href="02-crm-all-bids.html" type="button" class="btn btn-primary" data-button-save>Сохранить изменения</a>
 							</div>
 							<div class="col text-right">
 								<a href="02-crm-all-bids.html" type="button" class="btn btn-dark">Удалить в архив</a>
 							</div>
 						</div>
 
-					</form> -->
+					</form>
 				</div>
 				<!-- //col -->
 			</div>
@@ -176,7 +174,8 @@
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="js/Model.js"></script>
-	<script src="js/view-edit.js"></script>
+	<!-- <script src="js/view-edit.js"></script> -->
+	<script src="js/View.js"></script>
 	<script src="js/edit.js"></script>
 </body>
 
