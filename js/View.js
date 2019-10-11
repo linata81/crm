@@ -18,7 +18,6 @@
       const trElement = document.createElement('tr')
       trElement.innerHTML = trTemplate.replace(/%ID%/g, order.id)
 
-      // trElement.querySelector('[data-id]').textContent = order.id
       trElement.querySelector('[data-date]').textContent = dateFormattor.format(order.date)
       trElement.querySelector('[data-product]').textContent = order.product
       trElement.querySelector('[data-name]').textContent = order.name
@@ -26,16 +25,21 @@
       trElement.querySelector('[data-phone]').textContent = order.phone
 
       const badge = trElement.querySelector('[data-status]')
-      badge.textContent = order.status
- 
-      if(order.status === "В работе") {
-        badge.classList.add('badge-warning')
-      }
-      else if(order.status === "Завершен") {
-        badge.classList.add('badge-success')
-      }
-      else {
-        badge.classList.add('badge-danger')
+        badge.textContent = order.status
+
+      switch(order.status) {
+        case 'Новый':
+          badge.classList.add('badge-danger')
+          break
+        case 'В работе':
+          badge.classList.add('badge-warning')
+          break
+        case 'Завершен':
+          badge.classList.add('badge-success')
+          break
+        case 'Архивный':
+          badge.classList.add('badge-secondary')
+          break
       }
 
       tableHTML.querySelector('tbody').append(trElement)
@@ -54,11 +58,22 @@
     dom.querySelector('[data-phone]').value = order.phone
     dom.querySelector('[data-status]').value = order.status
 
-    dom.querySelector('[data-button-save]').addEventListener('click', function(event){
-      event.preventDefault()
-      dispatch(this, event)
-    })
+    //прослушиваем кнопку сохранить
+    // dom.querySelector('[data-button-save]').addEventListener('click', function(event){
+    //   event.preventDefault()
+    //   dispatch(this, event)
+    // })
 
+
+    //прослушиваем 2 кнопки
+    const buttons = dom.querySelectorAll('[data-button-save], [data-button-archive]')
+    for(const btn of buttons) {
+      btn.addEventListener('click', function(event){
+        event.preventDefault()
+        dispatch(this, event)
+      })
+    }
+    
   }
 
   View.getEditorData = function getEditorData(dom){

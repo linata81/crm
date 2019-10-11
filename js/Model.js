@@ -95,7 +95,18 @@
       }
     }
     return false
+  }
 
+  //Изменяем статус ордера на архивный
+  Model.getArchive = function getArchive(id){
+    for(const item of database.orders) {
+      if(item.id === id) {
+        item.status = 'Архивный'
+        save()
+        return true
+      }
+    }
+    return false
   }
 
   window.Model = Model

@@ -40,6 +40,10 @@
                   filters.status = "Завершен"
                   break
 
+              case "Архив":
+                  filters.status = "Архивный"
+                  break
+
               default:
                 filters.status = false
             }
@@ -53,7 +57,7 @@
     if(filters.status !== 'Архивный') {
       const newOrders = []
       for(const order of orders) {
-        if(order.product !== 'Архивный') {
+        if(order.status !== 'Архивный') {
           newOrders.push(order)
         }
       }
