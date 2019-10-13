@@ -38,11 +38,11 @@
 				Заявки
 			</div>
 			<ul>
-				<li><a href="#" class="active">Все вместе</a></li>
-				<li><a href="#">Новые <div class="badge">12</div></a></li>
-				<li><a href="#">В работе</a></li>
-				<li><a href="#">Завершенные</a></li>
-				<li><a href="#">Архив</a></li>
+				<li data-filter-status><a href="#" class="active">Все вместе</a></li>
+				<li data-filter-status class = 'pos-rel'><a href="#">Новые</a> <div class="badge pos-abs" data-counter>10</div></li>
+				<li data-filter-status><a href="#">В работе</a></li>
+				<li data-filter-status><a href="#">Завершенные</a></li>
+				<li data-filter-status><a href="#">Архив</a></li>
 			</ul>
 		</div>
 		<!-- // Navigation 1 -->
@@ -144,6 +144,7 @@
 											<option value="Новый">Новый</option>
 											<option value="В работе">В работе</option>
 											<option value="Завершен">Завершен</option>
+											<option value="Архивный" hidden>Архивный</option>
 										</select>
 									</div>
 								</div>
@@ -174,7 +175,6 @@
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="js/Model.js"></script>
-	<!-- <script src="js/view-edit.js"></script> -->
 	<script src="js/View.js"></script>
 	<script src="js/edit.js"></script>
 </body>

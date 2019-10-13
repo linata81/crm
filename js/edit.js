@@ -6,9 +6,10 @@
   
   View.updateEditionCard(document.body, order)
 
+  View.updateCounterNewOrders(document.body)
+
   View.dispatch = (element, event) => {
     const updateData = View.getEditorData(document.body)
-    // const result = Model.updateOrder(id, updateData)
     let result = null
 
     if(element.hasAttribute('data-button-save')) {

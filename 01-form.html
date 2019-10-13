@@ -27,7 +27,7 @@
 
 			<div class="white-plate__line-between white-plate__line-between--main"></div>
 
-			<form method="POST" action="<?=HOST?>payment-form.php">
+			<form method="POST" action="<?=HOST?>payment-form.php" data-order>
 				<label>Ваши данные:</label>
 				<div class="form-group">
 					<input type="text" name="name" autocomplete="on" class="form-control" placeholder="Имя и Фамилия" required>
@@ -41,11 +41,11 @@
 				<div class="form-group">
 					<label for="exampleFormControlSelect1">Продукт:</label>
 					<select name="product" class="form-control" id="exampleFormControlSelect1">
-						<option value="course-html">Курс по верстке</option>
-						<option value="course-js">Курс по JavaScript</option>
-						<option value="course-vue">Курс по VUE JS</option>
-						<option value="course-php">Курс по PHP</option>
-						<option value="course-wordpress">Курс по WordPress</option>
+						<option value="Курс по верстке">Курс по верстке</option>
+						<option value="Курс по JavaScript">Курс по JavaScript</option>
+						<option value="Курс по VUE JS">Курс по VUE JS</option>
+						<option value="Курс по PHP">Курс по PHP</option>
+						<option value="Курс по WordPress">Курс по WordPress</option>
 					</select>
 				</div>
 
@@ -59,7 +59,8 @@
 	<!-- // white-plate -->
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script src="js/main.js"></script>
+	<script src="js/Model.js"></script>
+	<script src="js/form.js"></script>
 </body>
 
 </html>

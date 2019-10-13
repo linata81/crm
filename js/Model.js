@@ -6,7 +6,7 @@
     orders: [
       {
         id: 1,
-        date: Date.now(),
+        date: Date.now(), //посмотреть 12,10
         product: "Курс по верстке",
         name: "Юрий Васильев",
         email: "info@rightblog.ru",
@@ -53,7 +53,7 @@
         id: 6,
         date: Date.now(),
         product: "Курс по WordPress",
-        name: "Василий Булкин",
+        name: "Татьяна Савченко",
         email: "info@yandex.ru",
         phone: "+7 (909) 22-22-229",
         status: "Завершен"
@@ -73,7 +73,6 @@
 
   //возвращает ордер по id
   Model.getOrderBuId = function getOrderBuId(id){
-    // return JSON.parse(JSON.stringify(database.orders[id-1]))
     for(const item of database.orders) {
       if(item.id === id) {
         return JSON.parse(JSON.stringify(item))
@@ -109,12 +108,31 @@
     return false
   }
 
+  //добавляет заявку в БД
+
+  Model.addOrder = function addOrder(order){
+    database.orders.push({
+      id: database.idCounter,
+      date: new Date().getTime(),
+      product: order.product,
+      name: order.name,
+      email: order.email,
+      phone: order.phone,
+      status: "Новый"
+    })
+    database.idCounter = database.idCounter + 1
+    save()
+
+  }
+
   window.Model = Model
 
+  //сохраняет БД в localestorage
   function save() {
     localStorage.setItem('crm', JSON.stringify(database))
   }
 
+  //возвращает БД из localestorage
   function load(){
     if(localStorage.getItem('crm')) {
       const data = JSON.parse(localStorage.getItem('crm'))

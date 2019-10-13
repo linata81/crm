@@ -48,7 +48,7 @@
     return tableHTML
   }
 
-  //метод, который принимает структуру и данные, и по этим данным будет менять состояние DOM
+  //формируем содержимое заявки (метод, который принимает структуру и данные, и по этим данным будет менять состояние DOM)
   View.updateEditionCard = function updateEditionCard(dom, order){
     dom.querySelector('[data-id]').textContent = order.id
     dom.querySelector('[data-datetime]').textContent = dateFormattor.format(order.date)
@@ -57,13 +57,6 @@
     dom.querySelector('[data-email]').value = order.email
     dom.querySelector('[data-phone]').value = order.phone
     dom.querySelector('[data-status]').value = order.status
-
-    //прослушиваем кнопку сохранить
-    // dom.querySelector('[data-button-save]').addEventListener('click', function(event){
-    //   event.preventDefault()
-    //   dispatch(this, event)
-    // })
-
 
     //прослушиваем 2 кнопки
     const buttons = dom.querySelectorAll('[data-button-save], [data-button-archive]')
@@ -85,6 +78,18 @@
       phone: dom.querySelector('[data-phone]').value,
       status: dom.querySelector('[data-status]').value
     }
+  }
+
+  //счетчик новых заявок в боковой панели
+  View.updateCounterNewOrders = function updateCounterNewOrders(dom){
+    const orders = Model.getOrders()
+    let counter = 0
+    for(const order of orders) {
+      if(order.status === "Новый") {
+        counter += 1
+      }
+    }
+    dom.querySelector('[data-counter]').textContent = counter
   }
 
   window.View = View

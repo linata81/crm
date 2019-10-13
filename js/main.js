@@ -6,6 +6,8 @@
     status: false
   }
 
+  View.updateCounterNewOrders(document.body)
+
   runFilter()
   
   document.querySelector('[data-filter-product]')
@@ -22,7 +24,8 @@
             filters.product = this.value || false                    /*еще более короткая запись*/
             runFilter()
           })
-          
+
+  const links = document.querySelectorAll('[data-filter-status] > a')
   document.querySelectorAll('[data-filter-status] > a')
           .forEach(element => element.addEventListener('click', function(event) {
             event.preventDefault()
@@ -30,22 +33,27 @@
             switch(this.textContent) {
               case "Новые":
                   filters.status = "Новый"
+                  toggleClassLink(links, 'active', "Новые")
                   break
 
               case "В работе":
                   filters.status = "В работе"
+                  toggleClassLink(links, 'active', "В работе")
                   break
 
               case "Завершенные":
                   filters.status = "Завершен"
+                  toggleClassLink(links, 'active', "Завершенные")
                   break
 
               case "Архив":
                   filters.status = "Архивный"
+                  toggleClassLink(links, 'active', "Архив")
                   break
 
               default:
                 filters.status = false
+                toggleClassLink(links, 'active', "Все вместе")
             }
             runFilter()
           }))
@@ -95,4 +103,13 @@
     tablePlace.append(table)
   }
 
+  //изменяем классы ссылок на боковой панели
+  function toggleClassLink(arr, className, sample){
+    for(let item of arr){
+      item.classList.remove(className)
+      if(item.textContent === sample && item.parentElement.tagName === 'LI') {
+        item.classList.add(className)
+      }
+    }
+  }
 })();

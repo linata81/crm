@@ -178,7 +178,7 @@ body {
   color: #FFF;
 }
 .left-panel__navigation .badge {
-  background-color: #2865B1;
+  background-color: #105ab5;
   color: #fff;
   border-radius: 32px;
   padding: 6px 10px 5px;
@@ -197,6 +197,15 @@ body {
   font-size: 34px;
   font-weight: 200;
   margin: 20px 0 10px;
+}
+.pos-rel {
+  position: relative;
+}
+.pos-abs {
+  position: absolute;
+  top: 15px;
+  left: 65px;
+  z-index: 5;
 }
 .badge {
   padding: 6px 10px 5px;
